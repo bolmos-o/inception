@@ -1,0 +1,36 @@
+services:
+  nginx:
+    container_name: nginx
+    build: ./requirements/nginx
+    networks:
+      - inception
+    ports:
+      - 4430:443
+    restart: always
+    volumes:
+      - wordpress-data:/var/www/html
+  
+  wordpress:
+    container_name: wordpress
+    build: ./requirements/wordpress
+    restart: always
+    networks:
+      - inception
+    volumes:
+      - wordpress-data:/var/www/html
+
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb
+    restart: always
+    networks:
+      - inception
+    volumes:
+      - mariadb-data:/var/lib/mysql
+
+volumes:
+  wordpress-data:
+  mariadb-data:
+
+networks:
+  inception:
