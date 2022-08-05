@@ -2,11 +2,11 @@ services:
   nginx:
     container_name: nginx
     build: ./requirements/nginx
+    restart: always
     networks:
       - inception
     ports:
       - 4430:443
-    restart: always
     volumes:
       - wordpress-data:/var/www/html
   
@@ -27,6 +27,8 @@ services:
       - inception
     volumes:
       - mariadb-data:/var/lib/mysql
+    env_file:
+      - .env
 
 volumes:
   wordpress-data:
