@@ -10,12 +10,6 @@ RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 
 RUN mkdir -p /var/www
 
-#RUN wp core download --allow-root --path=/var/www/html
-
-#RUN wp config create --skip-check --allow-root --dbname=wordpress --dbuser=wordpress --dbhost=mariadb --path=/var/www/html
-
-#RUN wp core install --allow-root --url=bolmos-o.42.fr --title=inception --admin_user=supervisor --admin_password=secret --admin_mail=bolmos-o@student.42.fr --path=/var/www/html
-
 COPY ./docker-entrypoint.sh /
 
 RUN chmod 755 docker-entrypoint.sh
