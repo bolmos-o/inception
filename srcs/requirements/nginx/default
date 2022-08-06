@@ -37,6 +37,7 @@ server {
 	# Don't use them in a production server!
 	#
 	include snippets/snakeoil.conf;
+	ssl_protocols TLSv1.3;	
 
 	root /var/www/html;
 
