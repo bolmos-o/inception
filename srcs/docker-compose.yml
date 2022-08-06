@@ -19,7 +19,7 @@ services:
     networks:
       - inception
     ports:
-      - 4430:443
+      - 443:443
     volumes:
       - wordpress-data:/var/www/html
   
