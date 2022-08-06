@@ -12,6 +12,6 @@ RUN mkdir -p /var/www
 
 COPY ./docker-entrypoint.sh /
 
-RUN chmod 755 docker-entrypoint.sh
+ENTRYPOINT [ "/docker-entrypoint.sh" ]
 
-CMD [ "/docker-entrypoint.sh" ]
+CMD [ "php-fpm7.3", "--nodaemonize" ]

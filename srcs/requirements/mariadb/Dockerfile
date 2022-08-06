@@ -6,8 +6,10 @@ RUN mkdir /var/run/mysqld
 
 RUN chmod 777 /var/run/mysqld
 
-COPY init.sql .
+COPY docker-entrypoint.sh .
 
 EXPOSE 3306
+
+ENTRYPOINT [ "/docker-entrypoint.sh" ]
 
 CMD [ "mysqld", "--bind-address=mariadb", "--init-file=/init.sql" ]
