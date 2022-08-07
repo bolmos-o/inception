@@ -21,7 +21,8 @@ services:
       - 443:443
     volumes:
       - wordpress-data:/var/www/html
-  
+      - adminer-data:/var/www/adminer
+
   wordpress:
     container_name: wordpress
     build: ./requirements/wordpress
@@ -43,7 +44,7 @@ services:
     networks:
       - inception
     volumes:
-      - adminer-data:/usr/share/adminer/adminer
+      - adminer-data:/var/www/adminer
 
 volumes:
   wordpress-data:
