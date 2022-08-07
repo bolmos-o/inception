@@ -34,9 +34,21 @@ services:
       - wordpress-data:/var/www/html
     env_file: .env
 
+  adminer:
+    container_name: adminer
+    build: ./requirements/bonus/adminer
+    restart: always
+    depends_on:
+      - mariadb
+    networks:
+      - inception
+    volumes:
+      - adminer-data:/usr/share/adminer/adminer
+
 volumes:
   wordpress-data:
   mariadb-data:
+  adminer-data:
 
 networks:
   inception:
